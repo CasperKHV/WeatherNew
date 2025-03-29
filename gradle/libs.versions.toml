@@ -1,19 +1,23 @@
 [versions]
-agp = "8.9.0"
+agp = "8.9.1"
+composeBom = "2025.03.01"
 kotlin = "2.0.21"
-coreKtx = "1.10.1"
+coreKtx = "1.15.0"
 appcompat = "1.7.0"
-material = "1.10.0"
+material = "1.12.0"
 
 [libraries]
 # implementation(libs.androidx.core.ktx) - так сейчас
 # implementation("androidx.core:core-ktx:1.10.1") - одно и тоже раньше
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-material3 = { module = "androidx.compose.material3:material3" }
+androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
